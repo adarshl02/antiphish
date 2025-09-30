@@ -80,7 +80,7 @@ const Index = () => {
 
 
 useGoogleOneTapLogin({
-    disabled: isLoading || !!user,
+    disabled:  !!user,
     onSuccess: async credentialResponse => {      
       if (credentialResponse.credential) {
         const decoded: { name: string, email: string, picture: string, sub: string } = jwtDecode(credentialResponse.credential);
