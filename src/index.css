@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* AntiPhishX Cybersecurity Design System */
+
+@layer base {
+  :root {
+    /* Core Security Theme Colors */
+    --background: 220 25% 4%; /* #0a0c10 - Deep fortress black */
+    --foreground: 220 10% 95%; /* Light text */
+
+    --card: 220 20% 8%; /* #161b22 - Security panel gray */
+    --card-foreground: 220 10% 95%;
+
+    --popover: 220 20% 8%;
+    --popover-foreground: 220 10% 95%;
+
+    /* Electric Blue Accent System */
+    --primary: 211 100% 62%; /* #388bfd - Electric blue */
+    --primary-foreground: 220 25% 4%;
+
+    --secondary: 220 15% 12%; /* Darker secondary */
+    --secondary-foreground: 220 10% 95%;
+
+    --muted: 220 15% 10%;
+    --muted-foreground: 220 8% 60%;
+
+    --accent: 211 100% 62%; /* Electric blue accent */
+    --accent-foreground: 220 25% 4%;
+
+    /* Security Status Colors */
+    --destructive: 0 65% 51%; /* #da3633 - Alarm red */
+    --destructive-foreground: 220 10% 95%;
+    
+    --success: 140 60% 40%; /* #238636 - Secure green */
+    --success-foreground: 220 10% 95%;
+    
+    --warning: 45 85% 47%; /* #d29922 - Caution amber */
+    --warning-foreground: 220 25% 4%;
+
+    --border: 220 15% 15%;
+    --input: 220 15% 12%;
+    --ring: 211 100% 62%; /* Electric blue ring */
+
+    /* Security Gradients */
+    --gradient-fortress: linear-gradient(135deg, hsl(220 25% 4%) 0%, hsl(220 20% 8%) 100%);
+    --gradient-shield: linear-gradient(135deg, hsl(140 60% 40%) 0%, hsl(140 50% 45%) 100%);
+    --gradient-alert: linear-gradient(135deg, hsl(0 65% 51%) 0%, hsl(0 70% 45%) 100%);
+    --gradient-scan: linear-gradient(135deg, hsl(211 100% 62%) 0%, hsl(211 80% 55%) 100%);
+
+    /* Security Shadows */
+    --shadow-fortress: 0 25px 50px -12px hsl(220 25% 4% / 0.8);
+    --shadow-shield: 0 0 30px hsl(140 60% 40% / 0.3);
+    --shadow-alert: 0 0 30px hsl(0 65% 51% / 0.3);
+    --shadow-scan: 0 0 20px hsl(211 100% 62% / 0.2);
+
+    --radius: 0.5rem;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    background: var(--gradient-fortress);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  /* Security Animations */
+  .pulse-shield {
+    animation: pulse-shield 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .glitch-alert {
+    animation: glitch 0.5s ease-in-out infinite alternate;
+  }
+  
+  .scan-glow {
+    box-shadow: var(--shadow-scan);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .scan-glow:hover {
+    box-shadow: 0 0 30px hsl(211 100% 62% / 0.4);
+  }
+  
+  .fortress-card {
+    background: var(--gradient-fortress);
+    box-shadow: var(--shadow-fortress);
+    border: 1px solid hsl(var(--border));
+  }
+  
+  .security-input {
+    background: hsl(var(--input));
+    border: 1px solid hsl(var(--border));
+    transition: all 0.3s ease;
+  }
+  
+  .security-input:focus {
+    border-color: hsl(var(--primary));
+    box-shadow: var(--shadow-scan);
+  }
+}
+
+@keyframes pulse-shield {
+  0%, 100% {
+    filter: drop-shadow(0 0 20px hsl(140 60% 40% / 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 40px hsl(140 60% 40% / 0.6));
+  }
+}
+
+@keyframes glitch {
+  0% {
+    filter: hue-rotate(0deg) drop-shadow(0 0 20px hsl(0 65% 51% / 0.5));
+  }
+  100% {
+    filter: hue-rotate(5deg) drop-shadow(0 0 30px hsl(0 65% 51% / 0.8));
+  }
+}
