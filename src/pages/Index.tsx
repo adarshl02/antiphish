@@ -4,7 +4,7 @@ import { AnalysisDashboard } from "../components/AnalysisDashboard";
 import { Header } from "../components/Header";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
-import { useGoogleOneTapLogin } from "@react-oauth/google";
+import { GoogleLogin, useGoogleOneTapLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
 import { googleSignup } from "@/service/authservice";
 
@@ -48,8 +48,8 @@ export interface AnalysisResponse {
 
 const Index = () => {
 
-  const { user, isLoading } = useAuth();
-  
+  const { user, isLoading,refreshHistory } = useAuth();
+
 
   const [analysisData, setAnalysisData] = useState<AnalysisResponse | null>(null);
   const [isAnalyzingText, setIsAnalyzingText] = useState(false);
@@ -58,6 +58,7 @@ const Index = () => {
   const handleAnalysis = async (data: AnalysisResponse) => {
     toast.success("Analysis completed successfully!");
     setAnalysisData(data);
+    refreshHistory();
   };
 
   const handleAnalysisStartImage = () => {
@@ -79,9 +80,9 @@ const Index = () => {
   };
 
 
-useGoogleOneTapLogin({
-    disabled:  !!user,
-    onSuccess: async credentialResponse => {      
+  useGoogleOneTapLogin({
+    disabled: !!user,
+    onSuccess: async credentialResponse => {
       if (credentialResponse.credential) {
         const decoded: { name: string, email: string, picture: string, sub: string } = jwtDecode(credentialResponse.credential);
         const data = {
@@ -101,11 +102,11 @@ useGoogleOneTapLogin({
 
   return (
     <div className="min-h-screen bg-background">
-
+     
       <div className="container mx-auto px-4 py-8">
-       
-        <Header />
 
+        <Header />
+        
         <InputZone
           onAnalysis={handleAnalysis}
           onAnalysisStartText={handleAnalysisStartText}

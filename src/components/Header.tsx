@@ -1,31 +1,24 @@
-import { useAuth } from "@/contexts/AuthContext";
 import { Shield } from "lucide-react";
+import { AppDrawer } from "./AppDrawer";
+import { GoogleLoginButton } from "./GoogleLoginButton";
+import { TemporaryChatToggle } from "./TemporaryChatToggle";
 
 export const Header = () => {
-
-  const {user,isLoading} = useAuth();
-
-
   return (
-    <header className="text-center mb-12">
-            {!isLoading && user && (
-        <div className="absolute top-0 right-0 flex items-center gap-3 p-4">
-          <div className="text-right">
-            {/* 3. User's name and email */}
-            <p className="text-sm font-semibold text-foreground">{user.name}</p>
-            <p className="text-xs text-muted-foreground">{user.email}</p>
-          </div>
-          {/* 4. User's circular avatar with a themed border */}
-          <img
-            src={user.avatar}
-            alt={user.name}
-            className="w-10 h-10 rounded-full border-2 border-primary/50"
-          />
+    <header className="text-center mb-12 relative">
+      {/* Top Controls */}
+      <div className="absolute top-0 left-0 right-0 flex items-center justify-between p-4">
+        <div className="flex items-center gap-3">
+          <AppDrawer />
+          <TemporaryChatToggle />
         </div>
-      )} 
+        <GoogleLoginButton />
+      </div>
+
+      {/* Main Header Content */}
       <div className="flex items-center justify-center gap-4 mb-6">
         <div className="p-4 rounded-2xl fortress-card">
-          <Shield className="w-12 h-12 text-primary" />
+          <Shield className="w-12 h-12 text-primary animate-pulse" />
         </div>
         <div>
           <h1 className="text-6xl font-bold text-foreground tracking-tight">
