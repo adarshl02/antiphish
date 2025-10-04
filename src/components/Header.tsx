@@ -2,6 +2,8 @@ import { Shield } from "lucide-react";
 import { AppDrawer } from "./AppDrawer";
 import { GoogleLoginButton } from "./GoogleLoginButton";
 import { TemporaryChatToggle } from "./TemporaryChatToggle";
+import { ExtensionComingSoonBadge } from "./ExtensionComingSoonBadge";
+import { ExtensionBadge } from "./ExtensionBadge";
 
 export const Header = () => {
   return (
@@ -11,8 +13,15 @@ export const Header = () => {
         <div className="flex items-center gap-3">
           <AppDrawer />
           <TemporaryChatToggle />
+            <div className="hidden md:block">
+            <ExtensionComingSoonBadge />
+          </div>
+          <div className="md:hidden">
+            <ExtensionBadge />
+          </div>
         </div>
         <GoogleLoginButton />
+        
       </div>
        {/* Main Header Content */}
     <header className="text-center mb-8 md:mb-12 relative mx-4 mt-12 md:mt-0">
