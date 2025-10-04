@@ -33,7 +33,7 @@ export const RiskScoreGauge = ({ score }: RiskScoreGaugeProps) => {
   
   return (
     <div className="fortress-card rounded-xl p-6">
-      <h4 className="text-lg font-semibold text-foreground mb-4">Risk Score</h4>
+      <h4 className="text-base md:text-lg font-semibold text-foreground mb-4">Risk Score</h4>
       
       <div className="relative w-32 h-32 mx-auto mb-4">
         <svg className="w-32 h-32 transform -rotate-90" viewBox="0 0 100 100">

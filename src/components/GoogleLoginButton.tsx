@@ -15,6 +15,7 @@ export const GoogleLoginButton = () => {
     onSuccess: async (tokenResponse) => {
       try {
         // Get user info from Google
+        console.log(tokenResponse);
         const userInfo = await axios.get(
           'https://www.googleapis.com/oauth2/v3/userinfo',
           { headers: { Authorization: `Bearer ${tokenResponse.access_token}` } }
@@ -64,9 +65,9 @@ export const GoogleLoginButton = () => {
         <DropdownMenuTrigger asChild>
           <Button
             variant="ghost"
-            className="relative h-10 w-10 rounded-full hover:bg-accent/20 fortress-card border border-accent/30"
+            className="relative h-8 w-8 md:h-10 md:w-10 rounded-full hover:bg-accent/20 fortress-card border border-accent/30"
           >
-            <Avatar className="h-9 w-9">
+            <Avatar className="h-7 w-7 md:h-9 md:w-9">
               <AvatarImage src={user.avatar} alt={user.name} />
               <AvatarFallback className="bg-primary/10 text-primary">
                 <UserIcon className="h-4 w-4" />

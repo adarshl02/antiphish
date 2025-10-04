@@ -27,7 +27,7 @@ export const PIIDetection = ({ entities }: PIIDetectionProps) => {
         ) : (
           <Shield className="w-6 h-6 text-success" />
         )}
-        <h4 className="text-lg font-semibold text-foreground">
+        <h4 className="text-base md:text-lg font-semibold text-foreground">
           PII Detection
         </h4>
       </div>
@@ -43,7 +43,7 @@ export const PIIDetection = ({ entities }: PIIDetectionProps) => {
                 Sensitive Data Found
               </span>
             </div>
-            <p className="text-sm text-muted-foreground mb-3">
+            <p className="text-xs md:text-sm text-muted-foreground mb-3">
               The following personally identifiable information was detected:
             </p>
             
@@ -67,7 +67,7 @@ export const PIIDetection = ({ entities }: PIIDetectionProps) => {
         <div className="text-center py-4">
           <Shield className="w-12 h-12 text-success mx-auto mb-3 opacity-60" />
           <p className="font-medium text-success">No Sensitive Data Detected</p>
-          <p className="text-sm text-muted-foreground mt-1">
+          <p className="text-xs md:text-sm text-muted-foreground mt-1">
             Content appears safe from a privacy perspective
           </p>
         </div>

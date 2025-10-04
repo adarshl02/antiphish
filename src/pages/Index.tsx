@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { InputZone } from "../components/InputZone";
 import { AnalysisDashboard } from "../components/AnalysisDashboard";
 import { Header } from "../components/Header";
@@ -55,6 +55,17 @@ const Index = () => {
   const [isAnalyzingText, setIsAnalyzingText] = useState(false);
   const [isAnalyzingImage, setIsAnalyzingImage] = useState(false);
 
+  const analysisDashboardRef = useRef<HTMLDivElement | null>(null);
+
+   useEffect(() => {
+    if (analysisData && analysisDashboardRef.current) {
+      analysisDashboardRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  }, [analysisData]);
+
   const handleAnalysis = async (data: AnalysisResponse) => {
     toast.success("Analysis completed successfully!");
     setAnalysisData(data);
@@ -93,17 +104,22 @@ const Index = () => {
         };
         const response = await googleSignup(data);
 
-        localStorage.setItem('AntiPhishXauthToken', response.data);
-        window.location.reload();
+         if (response.success && response.data) {
+          localStorage.setItem('AntiPhishXauthToken', response.data);
+          window.location.reload();
+          toast.success("Successfully signed in!");
+        } else {
+          toast.error("Sign in failed. Please try again.");
+        }
       }
     },
-    onError: () => console.log('Login Failed'),
+    onError: () => toast.error('Login Failed'),
   });
 
   return (
     <div className="min-h-screen bg-background">
      
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-2 md:py-6">
 
         <Header />
         
@@ -117,9 +133,11 @@ const Index = () => {
           isAnalyzingImage={isAnalyzingImage}
         />
 
-        {analysisData && (
-          <AnalysisDashboard data={analysisData} />
-        )}
+        <div ref={analysisDashboardRef} >
+          {analysisData && (
+            <AnalysisDashboard data={analysisData} />
+          )}
+        </div>
       </div>
     </div>
   );

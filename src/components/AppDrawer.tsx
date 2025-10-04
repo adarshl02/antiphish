@@ -36,23 +36,23 @@ export const AppDrawer = () => {
         <Button
           variant="ghost"
           size="icon"
-          className="fortress-card border border-accent/30 hover:bg-accent/10"
+          className="md:fortress-card md:border md:border-accent/30 hover:bg-accent/10 "
         >
           <Menu className="h-5 w-5" />
         </Button>
       </DrawerTrigger>
       <DrawerContent className="h-full w-80 fortress-card border-r border-accent/20">
         <DrawerHeader className="border-b border-accent/20">
-          <DrawerTitle className="text-2xl font-bold flex items-center gap-2">
+          <DrawerTitle className="text-lg md:text-2xl font-bold flex items-center gap-2">
             <History className="h-6 w-6 text-primary" />
             User History
           </DrawerTitle>
-          <DrawerDescription className="text-muted-foreground">
+          <DrawerDescription className="text-muted-foreground text-xs md:text-sm">
             Access your analysis history
           </DrawerDescription>
         </DrawerHeader>
 
-        <div className="flex-1 overflow-auto p-4">
+        <div className="flex-1 overflow-auto p-4 text-sm md:text-base">
           {user ? (
             <Accordion type="single" collapsible className="w-full">
               <AccordionItem value="text" className="border-accent/20">

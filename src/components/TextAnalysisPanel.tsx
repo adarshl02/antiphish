@@ -77,7 +77,7 @@ export const TextAnalysisPanel = ({ onAnalysis, onAnalysisStart, onAnalysisEnd, 
             },
           },
         };
-        
+        setText("");
         onAnalysis(formattedResponse);
       } else {
         // Handle cases where the API response structure is not as expected
@@ -93,14 +93,14 @@ export const TextAnalysisPanel = ({ onAnalysis, onAnalysisStart, onAnalysisEnd, 
   };
 
   return (
-    <div className="fortress-card rounded-xl p-6">
+    <div className="fortress-card rounded-xl p-3 md:p-6">
       <div className="flex items-center gap-3 mb-6">
         <div className="p-2 rounded-lg bg-primary/10">
           <FileText className="w-6 h-6 text-primary" />
         </div>
         <div>
-          <h3 className="text-xl font-semibold text-foreground">Text Analysis</h3>
-          <p className="text-sm text-muted-foreground">Analyze suspicious messages and emails</p>
+          <h3 className="text-lg md:text-xl font-semibold text-foreground">Text Analysis</h3>
+          <p className="text-xs md:text-sm text-muted-foreground">Analyze suspicious messages and emails</p>
         </div>
       </div>
       
@@ -109,7 +109,7 @@ export const TextAnalysisPanel = ({ onAnalysis, onAnalysisStart, onAnalysisEnd, 
           placeholder="Paste suspicious text, message, or email content here..."
           value={text}
           onChange={(e) => setText(e.target.value)}
-          className="security-input min-h-[200px] resize-none text-sm"
+          className="security-input min-h-[100px] md:min-h-[200px] resize-none text-xs md:text-sm"
           disabled={isAnalyzingText}
         />
         

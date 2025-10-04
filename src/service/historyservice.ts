@@ -13,9 +13,7 @@ export const fetchUserHistory = async () => {
         'Authorization': `${token}`
       },
       withCredentials: true,
-    });
-    console.log(response.data);
-    
+    });    
     
     return { success: true, data: response.data.response.data  };
   } catch (error) {

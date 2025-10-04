@@ -14,7 +14,7 @@ export const AnalysisDashboard = ({ data }: AnalysisDashboardProps) => {
   return (
     <div className="animate-in slide-in-from-bottom-4 duration-700">
       <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-foreground mb-2">Security Analysis Report</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-2">Security Analysis Report</h2>
         <div className="w-24 h-1 bg-primary mx-auto rounded-full"></div>
       </div>
       

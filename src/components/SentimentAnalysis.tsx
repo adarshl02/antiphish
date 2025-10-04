@@ -36,7 +36,7 @@ export const SentimentAnalysis = ({ sentiment }: SentimentAnalysisProps) => {
   
   return (
     <div className="fortress-card rounded-xl p-6">
-      <h4 className="text-lg font-semibold text-foreground mb-4">Sentiment Analysis</h4>
+      <h4 className="text-base md:text-lg font-semibold text-foreground mb-4">Sentiment Analysis</h4>
       
       <div className="relative w-32 h-32 mx-auto mb-4">
         <svg className="w-32 h-32 transform -rotate-90" viewBox="0 0 100 100">
@@ -94,7 +94,7 @@ export const SentimentAnalysis = ({ sentiment }: SentimentAnalysisProps) => {
         </div>
       </div>
       
-      <div className="space-y-2 text-sm">
+      <div className="space-y-2 text-xs md:text-sm">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-destructive"></div>

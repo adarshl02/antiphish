@@ -63,7 +63,7 @@ export const ExtractedContent = ({ text, keyPhrases, piiEntities }: ExtractedCon
     <div className="fortress-card rounded-xl p-6">
       <div className="flex items-center gap-3 mb-4">
         <FileText className="w-6 h-6 text-primary" />
-        <h4 className="text-lg font-semibold text-foreground">Content Analysis</h4>
+        <h4 className="text-base md:text-lg font-semibold text-foreground">Content Analysis</h4>
       </div>
       
       <div className="space-y-4">
@@ -76,7 +76,7 @@ export const ExtractedContent = ({ text, keyPhrases, piiEntities }: ExtractedCon
           </div>
           
           <div 
-            className="text-sm text-muted-foreground leading-relaxed whitespace-pre-wrap"
+            className="text-xs md:text-sm text-muted-foreground leading-relaxed whitespace-pre-wrap"
             dangerouslySetInnerHTML={{ 
               __html: highlightText(text || "No content available") 
             }}

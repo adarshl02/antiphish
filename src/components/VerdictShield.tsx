@@ -14,7 +14,7 @@ export const VerdictShield = ({ verdict }: VerdictShieldProps) => {
   const isPhishing = verdict.isPhishing;
   
   return (
-    <div className={`fortress-card rounded-xl p-8 text-center border-2 ${
+    <div className={`fortress-card rounded-xl p-4 md:p-8 text-center border-2 ${
       isPhishing 
         ? 'border-destructive/30 bg-destructive/5' 
         : 'border-success/30 bg-success/5'
@@ -39,13 +39,13 @@ export const VerdictShield = ({ verdict }: VerdictShieldProps) => {
         )}
       </div>
       
-      <h3 className={`text-4xl font-bold mb-2 ${
+      <h3 className={`text-xl md:text-4xl font-bold mb-2 ${
         isPhishing ? 'text-destructive' : 'text-success'
       }`}>
         {verdict.verdict}
       </h3>
       
-      <p className={`text-lg font-medium ${
+      <p className={`text-sm md:text-lg font-medium ${
         isPhishing 
           ? 'text-destructive-foreground' 
           : 'text-success-foreground'
